@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body { @apply bg-bg text-slate-200 font-sans antialiased selection:bg-accent selection:text-bg; }
+  :focus-visible { outline: 3px solid #22d3ee; outline-offset: 3px; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #07141c; }
+  ::-webkit-scrollbar-thumb { background: #1e3a4a; border-radius: 999px; }
+}
+@layer utilities {
+  .glass { background: rgba(14, 34, 46, 0.55); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.08); }
+  .glass-card { @apply glass rounded-2xl transition-all duration-300 hover:border-accent/40 hover:-translate-y-1; }
+  .text-gradient { @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-sky-400 to-accent2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-blob { animation: none; }
+}
